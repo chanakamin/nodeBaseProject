@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const connection = require('./config/db');
 const userController = require('./controllers/user.controller');
 const businessController = require('./controllers/business.controller');
 const serviceController = require('./controllers/service.controller');
@@ -9,7 +8,6 @@ const meetingController = require('./controllers/meeting.controller');
 const authMiddleware = require('./middleware/middleware');
 const port = 3000
 
-connection();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
