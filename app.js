@@ -6,7 +6,8 @@ const businessController = require('./controllers/business.controller');
 const serviceController = require('./controllers/service.controller');
 const meetingController = require('./controllers/meeting.controller');
 const authMiddleware = require('./middleware/middleware');
-const port = 3000
+const PORT = process.env.PORT || 3000
+
 
 app.use(cors());
 app.use(express.json());
@@ -18,6 +19,6 @@ app.use('/meeting', authMiddleware, meetingController);
 app.use('/service', authMiddleware, serviceController);
 
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`)
 })

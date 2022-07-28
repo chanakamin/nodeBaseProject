@@ -11,6 +11,15 @@ const getBusinessOfUser = async (user) => {
     return data.find(b => b.userId === user);
 }
 
+const getBusinessById = async (id) => {
+    const data = await getData();
+    return data.find(b => b.id === id);
+}
+
+const getBusinesses = async () => {
+    return await getData();
+}
+
 const createBusiness = async(business, userId) => {
     business.userId = userId;
     const id = uuidv4();
@@ -23,15 +32,21 @@ const createBusiness = async(business, userId) => {
 
 const updateBusiness = async (id, business) => {
     const businesses = await getData();
-    console.log(JSON.stringify(business), id);
+    console.error(JSON.stringify(business), id);
     const _business = await businesses.find(b => b.id === id);
-    Object.assign(_business, business);
-    await updateData(businesses);
-    return _business;
+    if (_business) {
+        Object.assign(_business, business);
+        await updateData(businesses);
+        return _business;
+    }
+    return 'no business';
 }
+    
 
 module.exports = {
     getBusinessOfUser,
     createBusiness,
     updateBusiness,
+    getBusinessById,
+    getBusinesses,
 }
