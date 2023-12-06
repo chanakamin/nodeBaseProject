@@ -225,6 +225,7 @@ Response: Meeting
 
 ```http
   DELETE /meeting/:id
+```
 
 | Parameter             |  Description                  |
 | :----------------     |  :-------------------------   |
