@@ -17,6 +17,11 @@ Download this package, and then run:
 ```
 npm install
 ```
+Then you can run
+```
+node app.js
+```
+and the server side runs!
 
 
 ## Usage <a name = "usage"></a>
